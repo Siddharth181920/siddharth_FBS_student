@@ -1,1 +1,0 @@
-# c. Find the sum of a geometric series from 1 to n where the common ratio is 2.
