@@ -1,0 +1,68 @@
+14) Add the constraints on columns max_books_allowed and penalty_amt
+as follows
+a. max_books_allowed < 100
+b. penalty_amt maximum 1000
+Also give names to the constraints.
+
+
+
+mysql> SHOW TABLES;
++-----------------+
+| Tables_in_useon |
++-----------------+
+| books           |
+| lib_issue       |
+| member          |
+| member101       |
++-----------------+
+4 rows in set (0.00 sec)
+
+mysql> DESC member101;
++-------------------+----------------------------------------------------+------+-----+---------+-------+
+| Field             | Type                                               | Null | Key | Default | Extra |
++-------------------+----------------------------------------------------+------+-----+---------+-------+
+| Mem_ID            | int                                                | NO   |     | NULL    |       |
+| Mem_Name          | varchar(20)                                        | YES  |     | NULL    |       |
+| Mem_Address       | varchar(50)                                        | YES  |     | NULL    |       |
+| Acc_Open_Date     | date                                               | YES  |     | NULL    |       |
+| Membership_Type   | enum('LifeTime','Annual','HalfYearly','Quarterly') | YES  |     | NULL    |       |
+| Fees_Paid         | int                                                | YES  |     | NULL    |       |
+| Max_Books_Allowed | int                                                | YES  |     | NULL    |       |
+| Penalty_Amount    | int                                                | YES  |     | NULL    |       |
++-------------------+----------------------------------------------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> ALTER TABLE member101
+    -> MODIFY COLUMN Max_Books_Allowed INT CHECK(Max_Books_Allowed < 100),
+    -> COLUMN Penalty_Amount INT CHECK(Penalty_Amount < 1000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'COLUMN Penalty_Amount INT CHECK(Penalty_Amount < 1000)' at line 3
+mysql> ALTER TABLE member101
+    -> MODIFY COLUMN Max_Books_Allowed INT CHECK(Max_Books_Allowed < 100),
+    -> MODIFY COLUMN Penalty_Amount INT CHECK(Penalty_Amount < 1000);
+ERROR 3819 (HY000): Check constraint 'member101_chk_2' is violated.
+mysql> SHOW CREATE TABLE member101;
++-----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table     | Create Table                                                                                                                                                                                                                                                                                                                                                                                                                                  |
++-----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| member101 | CREATE TABLE `member101` (
+  `Mem_ID` int NOT NULL,
+  `Mem_Name` varchar(20) DEFAULT NULL,
+  `Mem_Address` varchar(50) DEFAULT NULL,
+  `Acc_Open_Date` date DEFAULT NULL,
+  `Membership_Type` enum('LifeTime','Annual','HalfYearly','Quarterly') DEFAULT NULL,
+  `Fees_Paid` int DEFAULT NULL,
+  `Max_Books_Allowed` int DEFAULT NULL,
+  `Penalty_Amount` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++-----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+
+mysql> ALTER TABLE member101
+    -> MODIFY COLUMN Max_Books_Allowed INT CHECK(Max_Books_Allowed < 100);
+ERROR 3819 (HY000): Check constraint 'member101_chk_1' is violated.
+mysql>
+
