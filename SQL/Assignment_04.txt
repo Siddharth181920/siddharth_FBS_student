@@ -1,0 +1,384 @@
+MySQL Assignment 04
+
+
+
+1. Write a query to display the names (first_name, last_name) using alias
+name “First Name", "Last Name.
+
+-> mysql> SELECT First_Name"First Name",Last_Name"Last Name" FROM 31employees;
++------------+-----------+
+| First Name | Last Name |
++------------+-----------+
+| Dipak      | Shinde    |
+| Suyog      | Kulkarni  |
+| Siddh      | Thaware   |
+| Sanket     | Londhe    |
+| Vishnudas  | Bhosale   |
+| Devanand   | Bhusare   |
+| Dhanjay    | Sitap     |
+| Omkar      | Thaware   |
++------------+-----------+
+8 rows in set (0.00 sec)
+
+
+
+
+2. Write a query to get unique department ID from employee table.
+
+
+-> mysql> SELECT Department_ID FROM 31employees;
++---------------+
+| Department_ID |
++---------------+
+|             6 |
+|             5 |
+|             4 |
+|             3 |
+|            13 |
+|             3 |
+|             7 |
+|             7 |
++---------------+
+8 rows in set (0.00 sec)
+
+Follwing are the unique Department_ID from employee table.
+
+mysql> SELECT DISTINCT Department_ID FROM 31employees;
++---------------+
+| Department_ID |
++---------------+
+|             6 |
+|             5 |
+|             4 |
+|             3 |
+|            13 |
+|             7 |
++---------------+
+6 rows in set (0.00 sec)
+
+
+
+3. Write a query to get all employee details from the employee table order
+by first name, descending
+
+
+-> mysql> SELECT First_Name,Email_ID,Hire_Date,Job_ID,Salary FROM 31employees
+    -> ORDER BY First_Name DESC;
++------------+------------------+------------+--------+--------+
+| First_Name | Email_ID         | Hire_Date  | Job_ID | Salary |
++------------+------------------+------------+--------+--------+
+| Vishnudas  | vsb@gamil.com    | 2025-11-15 | VB_25  |  22000 |
+| Suyog      | sk@gmail.com     | 2026-04-13 | SK_302 |  32000 |
+| Siddh      | sst@gamil.com    | 2026-05-15 | ST_18  |  43000 |
+| Sanket     | sl@gmail.com     | 2026-02-14 | SL_14  |  34000 |
+| Omkar      | ombhai@gmail.com | 2026-03-17 | OM_12  |  20000 |
+| Dipak      | ds@gmail.com     | 2026-03-27 | DS_301 |  26000 |
+| Dhanjay    | ds@gamil.com     | 2026-02-15 | DS_11  |  30000 |
+| Devanand   | db1@gamil.com    | 2025-09-16 | DB_75  |  28000 |
++------------+------------------+------------+--------+--------+
+8 rows in set (0.00 sec)
+
+
+
+4. Write a query to get the names (first_name, last_name), salary, PF of all
+the employees (PF is calculated as 15% of salary).
+
+-> 
+
+
+
+
+5. Write a query to get the employee ID, names (first_name, last_name),
+salary in ascending order of salary.
+
+-> mysql> SELECT First_Name,Last_Name,Salary FROM 31employees
+    -> ORDER BY Salary;
++------------+-----------+--------+
+| First_Name | Last_Name | Salary |
++------------+-----------+--------+
+| Omkar      | Thaware   |  20000 |
+| Vishnudas  | Bhosale   |  22000 |
+| Dipak      | Shinde    |  26000 |
+| Devanand   | Bhusare   |  28000 |
+| Dhanjay    | Sitap     |  30000 |
+| Suyog      | Kulkarni  |  32000 |
+| Sanket     | Londhe    |  34000 |
+| Siddh      | Thaware   |  43000 |
++------------+-----------+--------+
+8 rows in set (0.00 sec)
+
+
+
+
+6. Write a query to get the total salaries payable to employees.
+
+->mysql> table em1;
++-------------+------------+-----------+------------------+-----------+------------+---------+--------+
+| Employee_ID | First_Name | Last_Name | Email_ID         | Phone_Num | Hire_Date  | Payment | Salary |
++-------------+------------+-----------+------------------+-----------+------------+---------+--------+
+|         100 | Dipak      | Shinde    | ds@gmail.com     |  89483934 | 2026-03-27 | Payable |  26000 |
+|         101 | Suyog      | Kulkarni  | sk@gmail.com     |    935699 | 2026-04-13 | Payable |  32000 |
+|         102 | Siddh      | Thaware   | sst@gamil.com    |    758603 | 2026-05-15 | Payable |  43000 |
+|         104 | Sanket     | Londhe    | sl@gmail.com     |    754645 | 2026-02-14 | Pending |  34000 |
+|         105 | Vishnudas  | Bhosale   | vsb@gamil.com    |     75335 | 2025-11-15 | Waiting |  22000 |
+|         106 | Devanand   | Bhusare   | db1@gamil.com    |    737289 | 2025-09-16 | Payable |  28000 |
+|         108 | Dhanjay    | Sitap     | ds@gamil.com     |    953034 | 2026-02-15 | Pending |  30000 |
+|         109 | Omkar      | Thaware   | ombhai@gmail.com |    859389 | 2026-03-17 | Payable |  20000 |
++-------------+------------+-----------+------------------+-----------+------------+---------+--------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT First_Name,Salary,Payment FROM em1
+    -> WHERE Payment = 'Payable';
++------------+--------+---------+
+| First_Name | Salary | Payment |
++------------+--------+---------+
+| Dipak      |  26000 | Payable |
+| Suyog      |  32000 | Payable |
+| Siddh      |  43000 | Payable |
+| Devanand   |  28000 | Payable |
+| Omkar      |  20000 | Payable |
++------------+--------+---------+
+5 rows in set (0.00 sec)
+
+
+
+
+7. Write a query to get the maximum and minimum salary from employees
+table.
+
+->mysql> SELECT Min_Salary"Minimum Salary",Max_Salary"Maximum_Salary" FROM 33_JOBS;
++----------------+----------------+
+| Minimum Salary | Maximum_Salary |
++----------------+----------------+
+|          10000 |          20000 |
+|          29000 |           6800 |
+|          24000 |           4800 |
+|          54000 |         108000 |
+|          80000 |         160000 |
++----------------+----------------+
+5 rows in set (0.00 sec)
+
+
+
+
+8. Write a query to get the average salary and number of employees in the
+employees table.
+
+
+
+
+
+9. Write a query to get the number of employees working with the
+company.
+
+->mysql> SELECT EMPLOYEE_ID,FIRST_NAME FROM DEP1
+    -> WHERE DEPARTMENT_ID IS NOT NULL;
++-------------+------------+
+| EMPLOYEE_ID | FIRST_NAME |
++-------------+------------+
+|         100 | Dipak      |
+|         102 | Siddh      |
+|         104 | Sanket     |
+|         106 | Devanand   |
+|         109 | Omkar      |
++-------------+------------+
+5 rows in set (0.00 sec)
+
+
+
+
+10.Write a query to get the number of jobs available in the employees table
+
+
+
+
+11.Write a query to select first 5 records from a table.
+
+->mysql> SELECT *FROM DEP1
+    -> WHERE EMPLOYEE_ID BETWEEN 100 AND 105;
++-------------+------------+-----------+---------------+-----------+--------+------------+---------------+
+| Employee_ID | First_Name | Last_Name | Email_ID      | Phone_Num | Salary | Manager_ID | Department_ID |
++-------------+------------+-----------+---------------+-----------+--------+------------+---------------+
+|         100 | Dipak      | Shinde    | ds@gmail.com  |  89483934 |  26000 |         57 |             7 |
+|         101 | Suyog      | Kulkarni  | sk@gmail.com  |    935699 |  32000 |         18 |          NULL |
+|         102 | Siddh      | Thaware   | sst@gamil.com |    758603 |  43000 |         19 |             3 |
+|         104 | Sanket     | Londhe    | sl@gmail.com  |    754645 |  34000 |         15 |             3 |
+|         105 | Vishnudas  | Bhosale   | vsb@gamil.com |     75335 |  22000 |         13 |          NULL |
++-------------+------------+-----------+---------------+-----------+--------+------------+---------------+
+5 rows in set (0.00 sec)
+
+
+
+
+12.Write a query to display the name (first_name, last_name) and salary for
+all employees whose salary is not in the range $10,000 through $15,000
+
+->mysql> SELECT EMPLOYEE_ID,FIRST_NAME,LAST_NAME,SALARY FROM DEP1
+    -> WHERE SALARY NOT BETWEEN 10000 AND 15000;
++-------------+------------+-----------+--------+
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | SALARY |
++-------------+------------+-----------+--------+
+|         100 | Dipak      | Shinde    |  26000 |
+|         101 | Suyog      | Kulkarni  |  32000 |
+|         102 | Siddh      | Thaware   |  43000 |
+|         104 | Sanket     | Londhe    |  34000 |
+|         105 | Vishnudas  | Bhosale   |  22000 |
+|         106 | Devanand   | Bhusare   |  28000 |
+|         108 | Dhanjay    | Sitap     |  30000 |
+|         109 | Omkar      | Thaware   |  20000 |
++-------------+------------+-----------+--------+
+8 rows in set (0.00 sec)
+
+
+
+
+13.Write a query to display the name (first_name, last_name) and
+department ID of all employees in departments 5 or 10 in ascending
+order.
+
+->mysql> SELECT EMPLOYEE_ID,FIRST_NAME,LAST_NAME,DEPARTMENT_ID FROM DEP1
+    -> WHERE DEPARTMENT_ID BETWEEN 5 AND 10
+    -> ORDER BY DEPARTMENT_ID;
++-------------+------------+-----------+---------------+
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | DEPARTMENT_ID |
++-------------+------------+-----------+---------------+
+|         106 | Devanand   | Bhusare   |             5 |
+|         109 | Omkar      | Thaware   |             6 |
+|         100 | Dipak      | Shinde    |             7 |
++-------------+------------+-----------+---------------+
+3 rows in set (0.00 sec)
+
+
+
+14.Write a query to display the name (first_name, last_name) and salary for
+all employees whose salary is not in the range $10,000 through $15,000
+and are in department 5 or 10.
+
+->mysql> SELECT FIRST_NAME,LAST_NAME,DEPARTMENT_ID,SALARY FROM DEP1
+    -> WHERE SALARY NOT BETWEEN 10000 AND 15000 AND DEPARTMENT_ID BETWEEN 5 AND 10;
++------------+-----------+---------------+--------+
+| FIRST_NAME | LAST_NAME | DEPARTMENT_ID | SALARY |
++------------+-----------+---------------+--------+
+| Dipak      | Shinde    |             7 |  26000 |
+| Devanand   | Bhusare   |             5 |  28000 |
+| Omkar      | Thaware   |             6 |  20000 |
++------------+-----------+---------------+--------+
+3 rows in set (0.00 sec)
+
+
+
+
+
+15.Write a query to display the name (first_name, last_name) and hire date
+for all employees who were hired in 2025.
+
+->mysql> SELECT FIRST_NAME,LAST_NAME,HIRE_DATE FROM DEP1
+    -> WHERE HIRE_DATE LIKE"2025-%-%";
++------------+-----------+------------+
+| FIRST_NAME | LAST_NAME | HIRE_DATE  |
++------------+-----------+------------+
+| Vishnudas  | Bhosale   | 2025-11-15 |
+| Devanand   | Bhusare   | 2025-09-16 |
++------------+-----------+------------+
+2 rows in set (0.00 sec)
+
+
+
+16.Write a query to display the first_name of all employees who have both
+"b" and "c" in their first name
+
+->mysql> table dep1;
++-------------+------------+-----------+------------------+------------+--------+------------+---------------+
+| Employee_ID | First_Name | Last_Name | Email_ID         | Hire_Date  | Salary | Manager_ID | Department_ID |
++-------------+------------+-----------+------------------+------------+--------+------------+---------------+
+|         100 | Dipak      | Shinde    | ds@gmail.com     | 2026-03-27 |  26000 |         57 |             7 |
+|         101 | Suyog      | Kulkarni  | sk@gmail.com     | 2026-04-13 |  32000 |         18 |            13 |
+|         102 | Siddh      | Thaware   | sst@gamil.com    | 2026-05-15 |  43000 |         19 |             3 |
+|         104 | Sanket     | Londhe    | sl@gmail.com     | 2026-02-14 |  34000 |         15 |             3 |
+|         105 | Vishnudas  | Bhosale   | vsb@gamil.com    | 2025-11-15 |  22000 |         13 |             4 |
+|         106 | Devanand   | Bhusare   | db1@gamil.com    | 2025-09-16 |  28000 |          9 |             5 |
+|         108 | Dhanjay    | Sitap     | ds@gamil.com     | 2026-02-15 |  30000 |         52 |             7 |
+|         109 | Omkar      | Thaware   | ombhai@gmail.com | 2026-03-17 |  20000 |          0 |             6 |
++-------------+------------+-----------+------------------+------------+--------+------------+---------------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT First_Name FROM DEP1
+    -> WHERE First_Name LIKE "%b%" and First_Name LIKE "%C%";
+Empty set (0.00 sec)
+
+mysql> SELECT First_Name FROM DEP1
+    -> WHERE First_Name LIKE "%a%" AND First_Name LIKE "%s%";
++------------+
+| First_Name |
++------------+
+| Sanket     |
+| Vishnudas  |
++------------+
+2 rows in set (0.00 sec)
+
+
+
+17.Write a query to display the last name, job, and salary for all employees
+whose job is that of a Programmer or a Shipping Clerk, and whose salary
+is not equal to $4,500, $10,000, or $15,000.
+
+-> 
+
+
+
+
+18.Write a query to display the last name of employees whose names have
+exactly 6 characters.
+
+->mysql> SELECT *FROM DEP1
+    -> WHERE LAST_NAME LIKE "______";
++-------------+------------+-----------+--------------+-----------+--------+------------+---------------+
+| Employee_ID | First_Name | Last_Name | Email_ID     | Phone_Num | Salary | Manager_ID | Department_ID |
++-------------+------------+-----------+--------------+-----------+--------+------------+---------------+
+|         100 | Dipak      | Shinde    | ds@gmail.com |  89483934 |  26000 |         57 |             7 |
+|         104 | Sanket     | Londhe    | sl@gmail.com |    754645 |  34000 |         15 |             3 |
++-------------+------------+-----------+--------------+-----------+--------+------------+---------------+
+2 rows in set (0.00 sec)
+
+
+
+
+19.Write a query to display the last name of employees having 'a' as the third
+character.
+
+->mysql> SELECT *FROM DEP1
+    -> WHERE LAST_NAME LIKE"%a__";
++-------------+------------+-----------+------------------+-----------+--------+------------+---------------+
+| Employee_ID | First_Name | Last_Name | Email_ID         | Phone_Num | Salary | Manager_ID | Department_ID |
++-------------+------------+-----------+------------------+-----------+--------+------------+---------------+
+|         102 | Siddh      | Thaware   | sst@gamil.com    |    758603 |  43000 |         19 |             3 |
+|         105 | Vishnudas  | Bhosale   | vsb@gamil.com    |     75335 |  22000 |         13 |          NULL |
+|         106 | Devanand   | Bhusare   | db1@gamil.com    |    737289 |  28000 |          9 |             5 |
+|         109 | Omkar      | Thaware   | ombhai@gmail.com |    859389 |  20000 |          0 |             6 |
++-------------+------------+-----------+------------------+-----------+--------+------------+---------------+
+4 rows in set (0.00 sec)
+
+
+
+
+20.Write a query to display the jobs/designations available in the employees
+table.
+
+
+
+
+21.Write a query to select all record from employees where last name in
+'SHINDE', 'BHUSARE', 'LONDHE' and 'THAWARE'
+
+->mysql> SELECT *FROM DEP1
+    -> WHERE LAST_NAME IN ('SHINDE','BHUSARE','LONDHE','THAWARE');
++-------------+------------+-----------+------------------+-----------+--------+------------+---------------+
+| Employee_ID | First_Name | Last_Name | Email_ID         | Phone_Num | Salary | Manager_ID | Department_ID |
++-------------+------------+-----------+------------------+-----------+--------+------------+---------------+
+|         100 | Dipak      | Shinde    | ds@gmail.com     |  89483934 |  26000 |         57 |             7 |
+|         102 | Siddh      | Thaware   | sst@gamil.com    |    758603 |  43000 |         19 |             3 |
+|         104 | Sanket     | Londhe    | sl@gmail.com     |    754645 |  34000 |         15 |             3 |
+|         106 | Devanand   | Bhusare   | db1@gamil.com    |    737289 |  28000 |          9 |             5 |
+|         109 | Omkar      | Thaware   | ombhai@gmail.com |    859389 |  20000 |          0 |             6 |
++-------------+------------+-----------+------------------+-----------+--------+------------+---------------+
+5 rows in set (0.00 sec)
