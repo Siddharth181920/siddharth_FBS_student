@@ -433,9 +433,6 @@ Also give names to the constraints.
 15) Drop the table books.
 
 
-
-
-
 mysql> SHOW TABLES;
 +-----------------+
 | Tables_in_useon |
@@ -467,8 +464,6 @@ following constraints.
 a. Book_No – Primary Key
 b. Book_Name – Not Null
 c. Category – System, Fiction, Database, RDBMS, Others.
-
-
 
 
 mysql> CREATE TABLE Books
@@ -765,7 +760,7 @@ Query OK, 0 rows affected (0.00 sec)
 
 
 
-28) Delete the record inserted at Q-27) and enable the constraints.
+28) Delete the record inserted at Q-26) and enable the constraints.
 
 mysql> TABLE ISSUE;
 +--------------+---------+-----------+------------+-------------+

@@ -1,3 +1,6 @@
+MySQL Assignment 03
+
+
 1. Write a SQL statement to insert a record as follows:
 
 
@@ -163,15 +166,20 @@ mysql> TABLE 33_JOBS;
 
 4. Write SQL statement to increment salary of each emp by 10%.
 
-
-
-
-
-
-
-
-
-
+->mysql> SELECT Employee_ID,First_Name,Salary,Salary+salary*0.10 as "Increment Salary" FROM 31EMPLOYEES;
++-------------+------------+--------+------------------+
+| Employee_ID | First_Name | Salary | Increment Salary |
++-------------+------------+--------+------------------+
+|         100 | Dipak      |  26000 |         28600.00 |
+|         101 | Suyog      |  32000 |         35200.00 |
+|         102 | Siddh      |  43000 |         47300.00 |
+|         104 | Sanket     |  34000 |         37400.00 |
+|         105 | Vishnudas  |  22000 |         24200.00 |
+|         106 | Devanand   |  28000 |         30800.00 |
+|         108 | Dhanjay    |  30000 |         33000.00 |
+|         109 | Omkar      |  20000 |         22000.00 |
++-------------+------------+--------+------------------+
+8 rows in set (0.00 sec)
 
 
 

@@ -70,9 +70,6 @@ employee_id, start_date, end_date, job_id and department_id
 
 
 
-
-
-
 mysql> CREATE TABLE JOB_HISTORY
     -> (
     -> EMP_ID INT,

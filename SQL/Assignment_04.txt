@@ -83,7 +83,20 @@ by first name, descending
 4. Write a query to get the names (first_name, last_name), salary, PF of all
 the employees (PF is calculated as 15% of salary).
 
--> 
+-> mysql> SELECT Employee_ID,First_Name,Salary,salary*0.12 as "PF OF Employee" FROM 31EMPLOYEES;
++-------------+------------+--------+----------------+
+| Employee_ID | First_Name | Salary | PF OF Employee |
++-------------+------------+--------+----------------+
+|         100 | Dipak      |  26000 |        3120.00 |
+|         101 | Suyog      |  32000 |        3840.00 |
+|         102 | Siddh      |  43000 |        5160.00 |
+|         104 | Sanket     |  34000 |        4080.00 |
+|         105 | Vishnudas  |  22000 |        2640.00 |
+|         106 | Devanand   |  28000 |        3360.00 |
+|         108 | Dhanjay    |  30000 |        3600.00 |
+|         109 | Omkar      |  20000 |        2400.00 |
++-------------+------------+--------+----------------+
+8 rows in set (0.00 sec)
 
 
 
