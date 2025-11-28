@@ -1,9 +1,0 @@
-L-21, Dell Inspiron Laptop   , Hardware/Laptop   , Assigned , 12    
-S-10, Adobe Photoshop License, Software/License  , InUse    , 25    
-H-03, HP LaserJet Printer    , Hardware/Printer  , Available, 6    
-M-07, Logitech Wireless Mouse, Hardware/Accessory, Assigned , 40    
-K-12, Mechanical Keyboard    , Hardware/Accessory, InStock  , 28    
-N-04, Norton Security License, Software/License  , InUse    , 18    
-P-33, Projector Epson X200   , Hardware/Projector, Assigned , 3    
-R-02, Router TP-Link Archer C6, Hardware/Network , Available, 10    
-D-19, External Hard Drive 1TB , Hardware/Storage , InStock  , 15    
